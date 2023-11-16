@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Template:  Fichier source de src/RobusDraw.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Template
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">RobusDraw.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ROBUS_DRAW_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ROBUS_DRAW_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;LibRobus.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;RobusPosition.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;PencilColor.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;SD.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define PENCIL_UP_ANGLE 83</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define PENCIL_DOWN_ANGLE 100 </span><span class="comment">//95</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define PENCIL_DOWN_SERVO SERVO_1</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceRobusDraw.html">RobusDraw</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingInfo.html">   18</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structRobusDraw_1_1DrawingInfo.html">DrawingInfo</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingInfo.html#a216f9674ee7d7784a1e887b54a00e30d">   19</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingInfo.html#a216f9674ee7d7784a1e887b54a00e30d">name</a>[20];</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingInfo.html#a833d02d9db1de0c8c8c4c3beedf3ed72">   20</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingInfo.html#a833d02d9db1de0c8c8c4c3beedf3ed72">width</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingInfo.html#a179210751be5ca421083858cafbff390">   21</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingInfo.html#a179210751be5ca421083858cafbff390">height</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingInfo.html#aa570f2dfef0e56ac559b4f2417761775">   22</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingInfo.html#aa570f2dfef0e56ac559b4f2417761775">pointsCount</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingSettings.html">   25</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structRobusDraw_1_1DrawingSettings.html">DrawingSettings</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingSettings.html#aa7ca37d8e8752c3f8e3ea8315fc6d112">   26</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingSettings.html#aa7ca37d8e8752c3f8e3ea8315fc6d112">followAngularVelocityScale</a> = NAN; </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingSettings.html#a08e8fc720ab163b1f595bd3198b8eb43">   27</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingSettings.html#a08e8fc720ab163b1f595bd3198b8eb43">followVelocity</a> = NAN; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingSettings.html#a1a995fa05289ea7b4cbb95e8f5f596d5">   28</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingSettings.html#a1a995fa05289ea7b4cbb95e8f5f596d5">curveTightness</a> = NAN; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingPoint.html">   31</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structRobusDraw_1_1DrawingPoint.html">DrawingPoint</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingPoint.html#a4ae975c0e271de94c66e2325a0da5a72">   32</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingPoint.html#a4ae975c0e271de94c66e2325a0da5a72">x</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingPoint.html#a0f3532fc1bad5fb347fca654f6b634cd">   33</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingPoint.html#a0f3532fc1bad5fb347fca654f6b634cd">y</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingPoint.html#a3101a7b965168a4e0236ff3dcdff9b1b">   34</a></span>        PencilColor <a class="code hl_variable" href="structRobusDraw_1_1DrawingPoint.html#a3101a7b965168a4e0236ff3dcdff9b1b">color</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingPoint.html#aebc39ebd7beae767c85664eb212e32ec">   35</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingPoint.html#aebc39ebd7beae767c85664eb212e32ec">isBoundary</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html">   38</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structRobusDraw_1_1DrawingState.html">DrawingState</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html#aaa6d9ce316e39d0d1e7ffd1e067b01c8">   39</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingState.html#aaa6d9ce316e39d0d1e7ffd1e067b01c8">loaded</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html#aa82e2730a1754956717c066daee2ed86">   40</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingState.html#aa82e2730a1754956717c066daee2ed86">pointIndex</a> = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html#abe33aa2147309b33318012751c57c0e9">   41</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingState.html#abe33aa2147309b33318012751c57c0e9">inLine</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html#a5728a3c526174bfad9f51d5f291e5959">   43</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRobusDraw_1_1DrawingState.html#a5728a3c526174bfad9f51d5f291e5959">drawing</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structRobusDraw_1_1DrawingState.html#a706dab0b81e5289db346b436d1e99b3f">   45</a></span>        File <a class="code hl_variable" href="structRobusDraw_1_1DrawingState.html#a706dab0b81e5289db346b436d1e99b3f">drawingFile</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a0dc72f54595621ba1850612b16e05e31">initialize</a>(<span class="keywordtype">int</span> chipSelect);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a31eb86ebf1eef0e70a45e3a57488f9cd">update</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a485719183efd52292e75f58e4aa4f148">getDrawingName</a>(<span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="namespaceRobusDraw.html#aa697e626520663e5adde227600a0ff07">getDrawingWidth</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="namespaceRobusDraw.html#a1452ea22a5ce2cbea68d999c3602fac1">getDrawingHeight</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceRobusDraw.html#aca82321751329e2a96c407a5220a72c5">getDrawingSize</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a96c8ee577433c34e9c6b89af393e0fbc">setPencilDown</a>(<span class="keywordtype">bool</span> enabled);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#ac4bc225b598b889e6c65ae9cd7dbb821">setPrecision</a>(<span class="keywordtype">float</span> _precision);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="namespaceRobusDraw.html#a00ecf1b54a434eb81920a33fe0338ff8">getPrecision</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceRobusDraw.html#aa3ef16ae5e252d987d0e3d27e165667c">loadDrawing</a>(<span class="keywordtype">char</span>* path);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a7744e1b9c011d2c6575932e0dc43c753">startDrawing</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a1886d11f9376f18d2980fe99c57cb308">restartDrawing</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#acec32ae96b055789cbbdf36e37bc0901">resumeDrawing</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#ad900dcdc3f725507224cbfd81a9b73ec">pauseDrawing</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceRobusDraw.html#a2bea87c94934d6c13f49f4cf6ced0479">stopDrawing</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceRobusDraw.html#a7b2f83527c45b61ae5ce66fff53d811d">isDrawingPaused</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceRobusDraw.html#a7c082399164f3ea0217422399f6c8ff3">isDrawingRunning</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceRobusDraw.html#acecac06e65aecbf53b4aac8dc4276943">isDrawingFinished</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceRobusDraw.html#a9ec85019a845a038a7e26d71549e900e">isDrawingLoaded</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="namespaceRobusDraw.html#a22ccd8008b0accded7917e6790db4bc4">getProgress</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_struct" href="structRobusDraw_1_1DrawingInfo.html">DrawingInfo</a> <a class="code hl_function" href="namespaceRobusDraw.html#a021500004047a1776c7339f49e7aab27">getDrawingInfo</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_struct" href="structRobusDraw_1_1DrawingSettings.html">DrawingSettings</a> <a class="code hl_function" href="namespaceRobusDraw.html#a095638d990a411524cae989b0d412ed4">getDrawingSettings</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">namespace </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> INFO_START_TAG[] = <span class="stringliteral">&quot;DRAWING_INFO_START&quot;</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> INFO_END_TAG[]= <span class="stringliteral">&quot;DRAWING_INFO_END&quot;</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> SETTINGS_START_TAG[] = <span class="stringliteral">&quot;SETTINGS_START&quot;</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> SETTINGS_END_TAG[] = <span class="stringliteral">&quot;SETTINGS_END&quot;</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> DRAWING_START_TAG[] = <span class="stringliteral">&quot;DRAWING_START&quot;</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> DRAWING_END_TAG[] = <span class="stringliteral">&quot;DRAWING_END&quot;</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SINGLE_PENCIL_SWITCH_TIME = 20;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">extern</span> <a class="code hl_struct" href="structRobusDraw_1_1DrawingState.html">DrawingState</a> state;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">extern</span> <a class="code hl_struct" href="structRobusDraw_1_1DrawingInfo.html">DrawingInfo</a> info;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">extern</span> <a class="code hl_struct" href="structRobusDraw_1_1DrawingSettings.html">DrawingSettings</a> settings;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">extern</span> <a class="code hl_struct" href="structRobusDraw_1_1DrawingPoint.html">DrawingPoint</a> loadedPoint;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">extern</span> <span class="keywordtype">float</span> precision;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_struct" href="structRobusDraw_1_1DrawingPoint.html">DrawingPoint</a> getLoadedPoint();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_struct" href="structRobusDraw_1_1DrawingPoint.html">DrawingPoint</a> loadNextPoint();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordtype">void</span> getFileNextLine(<span class="keywordtype">char</span>* line, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">bool</span> startsWith(<span class="keyword">const</span> <span class="keywordtype">char</span> *start, <span class="keyword">const</span> <span class="keywordtype">char</span> *text);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordtype">int</span> indexOf(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <span class="keywordtype">char</span> target);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordtype">void</span> substring(<span class="keywordtype">char</span>* text, <span class="keywordtype">char</span>* substring, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">void</span> split(<span class="keywordtype">char</span> *str, <span class="keywordtype">char</span> *delim, <span class="keywordtype">char</span> **result, <span class="keywordtype">int</span> *count);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespaceRobusDraw_html"><div class="ttname"><a href="namespaceRobusDraw.html">RobusDraw</a></div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:3</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a00ecf1b54a434eb81920a33fe0338ff8"><div class="ttname"><a href="namespaceRobusDraw.html#a00ecf1b54a434eb81920a33fe0338ff8">RobusDraw::getPrecision</a></div><div class="ttdeci">float getPrecision()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:61</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a021500004047a1776c7339f49e7aab27"><div class="ttname"><a href="namespaceRobusDraw.html#a021500004047a1776c7339f49e7aab27">RobusDraw::getDrawingInfo</a></div><div class="ttdeci">DrawingInfo getDrawingInfo()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:242</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a095638d990a411524cae989b0d412ed4"><div class="ttname"><a href="namespaceRobusDraw.html#a095638d990a411524cae989b0d412ed4">RobusDraw::getDrawingSettings</a></div><div class="ttdeci">DrawingSettings getDrawingSettings()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:245</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a0dc72f54595621ba1850612b16e05e31"><div class="ttname"><a href="namespaceRobusDraw.html#a0dc72f54595621ba1850612b16e05e31">RobusDraw::initialize</a></div><div class="ttdeci">void initialize(int chipSelect)</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:4</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a1452ea22a5ce2cbea68d999c3602fac1"><div class="ttname"><a href="namespaceRobusDraw.html#a1452ea22a5ce2cbea68d999c3602fac1">RobusDraw::getDrawingHeight</a></div><div class="ttdeci">float getDrawingHeight()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:44</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a1886d11f9376f18d2980fe99c57cb308"><div class="ttname"><a href="namespaceRobusDraw.html#a1886d11f9376f18d2980fe99c57cb308">RobusDraw::restartDrawing</a></div><div class="ttdeci">void restartDrawing()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:193</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a22ccd8008b0accded7917e6790db4bc4"><div class="ttname"><a href="namespaceRobusDraw.html#a22ccd8008b0accded7917e6790db4bc4">RobusDraw::getProgress</a></div><div class="ttdeci">float getProgress()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:238</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a2bea87c94934d6c13f49f4cf6ced0479"><div class="ttname"><a href="namespaceRobusDraw.html#a2bea87c94934d6c13f49f4cf6ced0479">RobusDraw::stopDrawing</a></div><div class="ttdeci">void stopDrawing()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:215</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a31eb86ebf1eef0e70a45e3a57488f9cd"><div class="ttname"><a href="namespaceRobusDraw.html#a31eb86ebf1eef0e70a45e3a57488f9cd">RobusDraw::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:13</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a485719183efd52292e75f58e4aa4f148"><div class="ttname"><a href="namespaceRobusDraw.html#a485719183efd52292e75f58e4aa4f148">RobusDraw::getDrawingName</a></div><div class="ttdeci">void getDrawingName(char *name)</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:36</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a7744e1b9c011d2c6575932e0dc43c753"><div class="ttname"><a href="namespaceRobusDraw.html#a7744e1b9c011d2c6575932e0dc43c753">RobusDraw::startDrawing</a></div><div class="ttdeci">void startDrawing()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:185</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a7b2f83527c45b61ae5ce66fff53d811d"><div class="ttname"><a href="namespaceRobusDraw.html#a7b2f83527c45b61ae5ce66fff53d811d">RobusDraw::isDrawingPaused</a></div><div class="ttdeci">bool isDrawingPaused()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:222</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a7c082399164f3ea0217422399f6c8ff3"><div class="ttname"><a href="namespaceRobusDraw.html#a7c082399164f3ea0217422399f6c8ff3">RobusDraw::isDrawingRunning</a></div><div class="ttdeci">bool isDrawingRunning()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:226</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a96c8ee577433c34e9c6b89af393e0fbc"><div class="ttname"><a href="namespaceRobusDraw.html#a96c8ee577433c34e9c6b89af393e0fbc">RobusDraw::setPencilDown</a></div><div class="ttdeci">void setPencilDown(bool enabled)</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:52</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_a9ec85019a845a038a7e26d71549e900e"><div class="ttname"><a href="namespaceRobusDraw.html#a9ec85019a845a038a7e26d71549e900e">RobusDraw::isDrawingLoaded</a></div><div class="ttdeci">bool isDrawingLoaded()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:234</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_aa3ef16ae5e252d987d0e3d27e165667c"><div class="ttname"><a href="namespaceRobusDraw.html#aa3ef16ae5e252d987d0e3d27e165667c">RobusDraw::loadDrawing</a></div><div class="ttdeci">bool loadDrawing(char *path)</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:65</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_aa697e626520663e5adde227600a0ff07"><div class="ttname"><a href="namespaceRobusDraw.html#aa697e626520663e5adde227600a0ff07">RobusDraw::getDrawingWidth</a></div><div class="ttdeci">float getDrawingWidth()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:40</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_ac4bc225b598b889e6c65ae9cd7dbb821"><div class="ttname"><a href="namespaceRobusDraw.html#ac4bc225b598b889e6c65ae9cd7dbb821">RobusDraw::setPrecision</a></div><div class="ttdeci">void setPrecision(float _precision)</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:57</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_aca82321751329e2a96c407a5220a72c5"><div class="ttname"><a href="namespaceRobusDraw.html#aca82321751329e2a96c407a5220a72c5">RobusDraw::getDrawingSize</a></div><div class="ttdeci">int getDrawingSize()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:48</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_acec32ae96b055789cbbdf36e37bc0901"><div class="ttname"><a href="namespaceRobusDraw.html#acec32ae96b055789cbbdf36e37bc0901">RobusDraw::resumeDrawing</a></div><div class="ttdeci">void resumeDrawing()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:203</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_acecac06e65aecbf53b4aac8dc4276943"><div class="ttname"><a href="namespaceRobusDraw.html#acecac06e65aecbf53b4aac8dc4276943">RobusDraw::isDrawingFinished</a></div><div class="ttdeci">bool isDrawingFinished()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:230</div></div>
+<div class="ttc" id="anamespaceRobusDraw_html_ad900dcdc3f725507224cbfd81a9b73ec"><div class="ttname"><a href="namespaceRobusDraw.html#ad900dcdc3f725507224cbfd81a9b73ec">RobusDraw::pauseDrawing</a></div><div class="ttdeci">void pauseDrawing()</div><div class="ttdef"><b>Definition:</b> RobusDraw.cpp:209</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingInfo_html"><div class="ttname"><a href="structRobusDraw_1_1DrawingInfo.html">RobusDraw::DrawingInfo</a></div><div class="ttdef"><b>Definition:</b> RobusDraw.h:18</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingInfo_html_a179210751be5ca421083858cafbff390"><div class="ttname"><a href="structRobusDraw_1_1DrawingInfo.html#a179210751be5ca421083858cafbff390">RobusDraw::DrawingInfo::height</a></div><div class="ttdeci">float height</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:21</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingInfo_html_a216f9674ee7d7784a1e887b54a00e30d"><div class="ttname"><a href="structRobusDraw_1_1DrawingInfo.html#a216f9674ee7d7784a1e887b54a00e30d">RobusDraw::DrawingInfo::name</a></div><div class="ttdeci">char name[20]</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:19</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingInfo_html_a833d02d9db1de0c8c8c4c3beedf3ed72"><div class="ttname"><a href="structRobusDraw_1_1DrawingInfo.html#a833d02d9db1de0c8c8c4c3beedf3ed72">RobusDraw::DrawingInfo::width</a></div><div class="ttdeci">float width</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:20</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingInfo_html_aa570f2dfef0e56ac559b4f2417761775"><div class="ttname"><a href="structRobusDraw_1_1DrawingInfo.html#aa570f2dfef0e56ac559b4f2417761775">RobusDraw::DrawingInfo::pointsCount</a></div><div class="ttdeci">int pointsCount</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:22</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingPoint_html"><div class="ttname"><a href="structRobusDraw_1_1DrawingPoint.html">RobusDraw::DrawingPoint</a></div><div class="ttdef"><b>Definition:</b> RobusDraw.h:31</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingPoint_html_a0f3532fc1bad5fb347fca654f6b634cd"><div class="ttname"><a href="structRobusDraw_1_1DrawingPoint.html#a0f3532fc1bad5fb347fca654f6b634cd">RobusDraw::DrawingPoint::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:33</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingPoint_html_a3101a7b965168a4e0236ff3dcdff9b1b"><div class="ttname"><a href="structRobusDraw_1_1DrawingPoint.html#a3101a7b965168a4e0236ff3dcdff9b1b">RobusDraw::DrawingPoint::color</a></div><div class="ttdeci">PencilColor color</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:34</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingPoint_html_a4ae975c0e271de94c66e2325a0da5a72"><div class="ttname"><a href="structRobusDraw_1_1DrawingPoint.html#a4ae975c0e271de94c66e2325a0da5a72">RobusDraw::DrawingPoint::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:32</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingPoint_html_aebc39ebd7beae767c85664eb212e32ec"><div class="ttname"><a href="structRobusDraw_1_1DrawingPoint.html#aebc39ebd7beae767c85664eb212e32ec">RobusDraw::DrawingPoint::isBoundary</a></div><div class="ttdeci">bool isBoundary</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:35</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingSettings_html"><div class="ttname"><a href="structRobusDraw_1_1DrawingSettings.html">RobusDraw::DrawingSettings</a></div><div class="ttdef"><b>Definition:</b> RobusDraw.h:25</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingSettings_html_a08e8fc720ab163b1f595bd3198b8eb43"><div class="ttname"><a href="structRobusDraw_1_1DrawingSettings.html#a08e8fc720ab163b1f595bd3198b8eb43">RobusDraw::DrawingSettings::followVelocity</a></div><div class="ttdeci">float followVelocity</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:27</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingSettings_html_a1a995fa05289ea7b4cbb95e8f5f596d5"><div class="ttname"><a href="structRobusDraw_1_1DrawingSettings.html#a1a995fa05289ea7b4cbb95e8f5f596d5">RobusDraw::DrawingSettings::curveTightness</a></div><div class="ttdeci">float curveTightness</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:28</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingSettings_html_aa7ca37d8e8752c3f8e3ea8315fc6d112"><div class="ttname"><a href="structRobusDraw_1_1DrawingSettings.html#aa7ca37d8e8752c3f8e3ea8315fc6d112">RobusDraw::DrawingSettings::followAngularVelocityScale</a></div><div class="ttdeci">float followAngularVelocityScale</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:26</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html">RobusDraw::DrawingState</a></div><div class="ttdef"><b>Definition:</b> RobusDraw.h:38</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html_a5728a3c526174bfad9f51d5f291e5959"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html#a5728a3c526174bfad9f51d5f291e5959">RobusDraw::DrawingState::drawing</a></div><div class="ttdeci">bool drawing</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:43</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html_a706dab0b81e5289db346b436d1e99b3f"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html#a706dab0b81e5289db346b436d1e99b3f">RobusDraw::DrawingState::drawingFile</a></div><div class="ttdeci">File drawingFile</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:45</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html_aa82e2730a1754956717c066daee2ed86"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html#aa82e2730a1754956717c066daee2ed86">RobusDraw::DrawingState::pointIndex</a></div><div class="ttdeci">int pointIndex</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:40</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html_aaa6d9ce316e39d0d1e7ffd1e067b01c8"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html#aaa6d9ce316e39d0d1e7ffd1e067b01c8">RobusDraw::DrawingState::loaded</a></div><div class="ttdeci">bool loaded</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:39</div></div>
+<div class="ttc" id="astructRobusDraw_1_1DrawingState_html_abe33aa2147309b33318012751c57c0e9"><div class="ttname"><a href="structRobusDraw_1_1DrawingState.html#abe33aa2147309b33318012751c57c0e9">RobusDraw::DrawingState::inLine</a></div><div class="ttdeci">bool inLine</div><div class="ttdef"><b>Definition:</b> RobusDraw.h:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>
