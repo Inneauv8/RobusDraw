@@ -12,5 +12,8 @@
     "version": "1.0.0",
     "dependencies": {
       "LibRobUS": "https://github.com/UdeS-GRO/LibRobUS",
+      "MathX" : "https://github.com/Inneauv8/MathX",
+      "RobusPosition" : "https://github.com/Inneauv8/RobusPosition",
+      "SD" : "arduino-libraries/SD@^1.2.4"
     }
   }

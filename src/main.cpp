@@ -17,6 +17,8 @@ Modifications :
 
 #include <Arduino.h>
 #include <LibRobus.h>
+#include "RobusDraw.h"
+#include "PencilColor.h"
 
 // *************************************************************************************************
 //  CONSTANTES
@@ -45,7 +47,23 @@ Modifications :
 void setup()
 {   
     BoardInit();
-    Serial.begin(115200); // 115200 ou 9600
+    Serial.begin(9600); // 115200 ou 9600
+    RobusDraw::initialize(10);
+    Serial.println("Successfully initialized SD card!");
+    RobusDraw::setPrecision(0.5);
+    RobusPosition::setCurveTightness(50);
+    RobusPosition::setFollowAngularVelocityScale(3);
+    RobusMovement::setPIDAngular(0.5, 0, 0.07, 0);
+
+    bool success = RobusDraw::loadDrawing("fardx.txt");
+
+    if (success) {
+        Serial.println("Successfully loaded");
+    } else {
+        Serial.println("Failed to load");
+    }
+
+    RobusDraw::startDrawing();
     
     // Décommenter si le programme a absolument besoin du serial.
     //while(!Serial);
@@ -57,5 +75,5 @@ void setup()
 */
 void loop()
 {
-    
+    RobusDraw::update();
 }
