@@ -25,6 +25,8 @@ Modifications :
 // *************************************************************************************************
 /* VIDE */
 
+#define INTEGRATION_ITERATION 50
+
 // *************************************************************************************************
 //  FONCTIONS LOCALES
 // *************************************************************************************************
@@ -40,6 +42,11 @@ Modifications :
 // *************************************************************************************************
 /* VIDE */
 
+bool lastButtonG = false;
+bool lastButtonA = false;
+
+//7.51969
+
 /**
  * @brief Initialisation du programme.
  * @author Mathieu Durand
@@ -52,21 +59,17 @@ void setup()
     Serial.println("Successfully initialized SD card!");
     RobusDraw::setPrecision(0.5);
     RobusPosition::setCurveTightness(50);
-    RobusPosition::setFollowAngularVelocityScale(3);
-    RobusMovement::setPIDAngular(0.5, 0, 0.07, 0);
+    RobusPosition::setFollowAngularVelocityScale(3); //3
+    RobusMovement::setPIDAngular(0.5, 0, 0.01, 0);
 
-    bool success = RobusDraw::loadDrawing("fardx.txt");
+    //bool success = RobusDraw::loadDrawing("test.txt");
 
-    if (success) {
-        Serial.println("Successfully loaded");
-    } else {
-        Serial.println("Failed to load");
-    }
+    //if (success) {
+       // Serial.println("Successfully loaded");
+   //} else {
+       // Serial.println("Failed to load");
+    //}
 
-    RobusDraw::startDrawing();
-    
-    // Décommenter si le programme a absolument besoin du serial.
-    //while(!Serial);
 }
 
 /**
@@ -75,5 +78,37 @@ void setup()
 */
 void loop()
 {
+    bool currentButtonA = ROBUS_IsBumper(FRONT);
+    if (!currentButtonA && lastButtonA) {
+        RobusDraw::stopDrawing();
+        RobusDraw::loadDrawing("shera.txt");
+        //RobusDraw::restartDrawing();
+    }
+    lastButtonA = currentButtonA;
+
+    bool currentButtonG = ROBUS_IsBumper(LEFT);
+    if (!currentButtonG && lastButtonG) {
+        //RobusDraw::stopDrawing();
+        //RobusDraw::loadDrawing("sher.txt");
+        /*
+        if (RobusDraw::isDrawingFinished()) {
+            RobusDraw::restartDrawing();
+        } else if (!RobusDraw::isDrawingRunning()) {
+            RobusDraw::startDrawing();
+        } else if (!RobusDraw::isDrawingPaused()) {
+            RobusDraw::pauseDrawing();
+        } else if (RobusDraw::isDrawingPaused()) {
+            RobusDraw::resumeDrawing();
+        }
+        */
+        //RobusDraw::restartDrawing();
+    }
+    lastButtonG = currentButtonG;
+
+    if (RobusDraw::isDrawingLoaded() && !RobusDraw::isDrawingRunning()) {
+        RobusDraw::startDrawing();
+    }
+
+    //delay(0);
     RobusDraw::update();
 }

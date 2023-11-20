@@ -20,11 +20,9 @@ namespace RobusDraw {
 
             if (dist(point.x, point.y, position.x, position.y) < precision && isDrawingLoaded() && isDrawingRunning() && !isDrawingFinished()) {
                 point = loadNextPoint();
-                setPencilDown(state.inLine);
+                RobusPosition::setTarget(point.x, point.y);
             }
-
-            RobusPosition::setTarget(point.x, point.y);
-
+            setPencilDown(state.inLine);
         } else {
             RobusPosition::stopFollowingTarget();
             RobusMovement::stop();
@@ -91,7 +89,7 @@ namespace RobusDraw {
         //Serial.println(state.drawingFile.available() ? "true" : "false");
         
         while (state.drawingFile.available() && (!settingsExtracted || !infoExtracted)) {
-            char line[50] = "a";
+            char line[50] = "\0";
 
             getFileNextLine(line, 50);
 
@@ -104,7 +102,7 @@ namespace RobusDraw {
             if (readingInfo) {
                 int index = indexOf(line, '=') + 2;
 
-                char substr[50] = "a";
+                char substr[50] = "\0";
                 substring(line, substr, index);
 
                 if (startsWith("name", line)) {
@@ -132,7 +130,7 @@ namespace RobusDraw {
             if (readingSettings) {
                 int index = indexOf(line, '=') + 2;
 
-                char substr[50] = "a";
+                char substr[50] = "\0";
                 substring(line, substr, index);
 
                 if (startsWith("followAngularVelocityScale", line)) {
@@ -183,7 +181,7 @@ namespace RobusDraw {
     }
 
     void startDrawing() {
-        if (isDrawingLoaded() && !isDrawingFinished()) {
+        if (isDrawingLoaded() && !isDrawingFinished() && !isDrawingRunning()) {
             state.drawing = true;
             state.inLine = false;
             state.pointIndex = 0;
@@ -217,6 +215,7 @@ namespace RobusDraw {
         state.inLine = false;
         state.drawing = false;
         state.pointIndex = 0;
+        state.drawingFile.close();
     }
 
     bool isDrawingPaused() {
@@ -264,23 +263,26 @@ namespace RobusDraw {
                     state.inLine = !state.inLine;
                 }
 
-                char line[100];
+                char line[100] = "\0";
                 getFileNextLine(line, 100);
 
-                char* tokens[4]; // Assuming a maximum of 4 tokens
+                char* tokens[8]; // Assuming a maximum of 4 tokens
                 int tokenCount;
 
                 split(line, " ", tokens, &tokenCount);
 
-                if (tokenCount == 4) {
+                if (tokenCount >= 4) {
                     loadedPoint.x = atof(tokens[0]);
                     loadedPoint.y = atof(tokens[1]);
+
                     loadedPoint.color = stringToPencilColor(tokens[2]);
                     loadedPoint.isBoundary = strcmp(tokens[3], "true") == 0 ? true : false;
+                } else {
+                    Serial.println("DEBUG DRAW : too many elements in drawing points");
                 }
                 state.pointIndex++;
             }
-            return getLoadedPoint();
+            return loadedPoint;
         }
 
         void getFileNextLine(char* line, int size) {
