@@ -1,11 +1,11 @@
 {
-    "name":"",
-    "description":"",
-    "keywords":"",
+    "name":"RobusDraw",
+    "description":"Robus drawing",
+    "keywords":"robus",
     "authors":
     [
       {
-        "name": "Name",
+        "name": "Mathieu Durand",
         "maintainer": true
       }
     ],
