@@ -7,10 +7,14 @@
 #include <SPI.h>
 #include <SD.h>
 
-#define PENCIL_UP_ANGLE 83
-#define PENCIL_DOWN_ANGLE 100 //95
+#define PENCIL_DOWN_SERVO SERVO_2
+#define PENCIL_UP_ANGLE 135
+#define PENCIL_DOWN_ANGLE 130 //95
 
-#define PENCIL_DOWN_SERVO SERVO_1
+#define PENCIL_COLOR_SERVO SERVO_1
+#define PENCIL_BETWEEN_ANGLE 40
+
+#define PENCIL_CHANGE_TIME 200
 
 
 namespace RobusDraw {
@@ -41,8 +45,18 @@ namespace RobusDraw {
         bool inLine = false;
 
         bool drawing = false;
+        PencilColor color = BLACK;
 
         File drawingFile;
+    };
+
+    struct TimoutState {
+        unsigned long time = 0;
+        bool pencilDown = false;
+
+        bool inTimeout() {
+            return millis() < time;
+        }
     };
 
     void initialize(int chipSelect);
@@ -55,6 +69,7 @@ namespace RobusDraw {
 
 
     void setPencilDown(bool enabled);
+    void setPencilColor(PencilColor color);
 
     void setPrecision(float _precision);
     float getPrecision();
@@ -86,6 +101,7 @@ namespace RobusDraw {
         static const int SINGLE_PENCIL_SWITCH_TIME = 20;
 
         extern DrawingState state;
+        extern TimoutState timeoutState;
         extern DrawingInfo info;
         extern DrawingSettings settings;
         extern DrawingPoint loadedPoint;
@@ -93,6 +109,8 @@ namespace RobusDraw {
 
         DrawingPoint getLoadedPoint();
         DrawingPoint loadNextPoint();
+
+        void timeout(unsigned long time, bool isPencilDown);
 
         void getFileNextLine(char* line, int size);
         bool startsWith(const char *start, const char *text);

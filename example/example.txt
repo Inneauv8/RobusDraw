@@ -17,7 +17,7 @@ Modifications :
 
 #include <Arduino.h>
 #include <LibRobus.h>
-#include "RobusDraw.h"
+#include <RobusDraw.h>
 #include "PencilColor.h"
 
 // *************************************************************************************************
@@ -61,15 +61,6 @@ void setup()
     RobusPosition::setCurveTightness(50);
     RobusPosition::setFollowAngularVelocityScale(3); //3
     RobusMovement::setPIDAngular(0.5, 0, 0.01, 0);
-
-    //bool success = RobusDraw::loadDrawing("test.txt");
-
-    //if (success) {
-       // Serial.println("Successfully loaded");
-   //} else {
-       // Serial.println("Failed to load");
-    //}
-
 }
 
 /**
@@ -81,7 +72,7 @@ void loop()
     bool currentButtonA = ROBUS_IsBumper(FRONT);
     if (!currentButtonA && lastButtonA) {
         RobusDraw::stopDrawing();
-        RobusDraw::loadDrawing("shera.txt");
+        RobusDraw::loadDrawing("sherc.txt");
         //RobusDraw::restartDrawing();
     }
     lastButtonA = currentButtonA;
@@ -90,18 +81,6 @@ void loop()
     if (!currentButtonG && lastButtonG) {
         //RobusDraw::stopDrawing();
         //RobusDraw::loadDrawing("sher.txt");
-        /*
-        if (RobusDraw::isDrawingFinished()) {
-            RobusDraw::restartDrawing();
-        } else if (!RobusDraw::isDrawingRunning()) {
-            RobusDraw::startDrawing();
-        } else if (!RobusDraw::isDrawingPaused()) {
-            RobusDraw::pauseDrawing();
-        } else if (RobusDraw::isDrawingPaused()) {
-            RobusDraw::resumeDrawing();
-        }
-        */
-        //RobusDraw::restartDrawing();
     }
     lastButtonG = currentButtonG;
 

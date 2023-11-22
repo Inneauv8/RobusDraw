@@ -4,15 +4,17 @@
 #include <Arduino.h>  // Include for strcmp function
 
 enum PencilColor {
-    BLACK,
     RED,
-    GREEN,
     BLUE,
+    GREEN,
+    BLACK,
     NONE
 };
 
 const char* pencilColorToString(PencilColor color);
 
 PencilColor stringToPencilColor(const char* str);
+
+int pencilColorToAngle(PencilColor color);
 
 #endif // PENCILCOLOR_H

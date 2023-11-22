@@ -3,6 +3,7 @@
 namespace RobusDraw {
     void initialize(int chipSelect) {
         SERVO_Enable(PENCIL_DOWN_SERVO);
+        SERVO_Enable(PENCIL_COLOR_SERVO);
         if (!SD.begin(chipSelect)) {
             Serial.println("Card failed, or not present");
             // don't do anything more:
@@ -12,7 +13,8 @@ namespace RobusDraw {
 
     void update() {
         
-        if (isDrawingLoaded() && isDrawingRunning() && !isDrawingFinished()) {
+        bool inTimout = timeoutState.inTimeout();
+        if (isDrawingLoaded() && isDrawingRunning() && !isDrawingFinished() && !inTimout) {
             RobusPosition::startFollowingTarget();
 
             RobusPosition::Vector position = RobusPosition::getPosition();
@@ -26,6 +28,10 @@ namespace RobusDraw {
         } else {
             RobusPosition::stopFollowingTarget();
             RobusMovement::stop();
+            
+            if (inTimout) {
+                setPencilDown(timeoutState.pencilDown);
+            }
         }
 
         RobusPosition::update();
@@ -50,6 +56,20 @@ namespace RobusDraw {
     void setPencilDown(bool enabled) {
         float angle = enabled ? PENCIL_DOWN_ANGLE : PENCIL_UP_ANGLE;
         SERVO_SetAngle(PENCIL_DOWN_SERVO, angle);
+    }
+
+    void setPencilColor(PencilColor color) {
+        int currentAngle = pencilColorToAngle(state.color);
+        int targetAngle = pencilColorToAngle(color);
+        if (currentAngle != targetAngle) {
+            if (color != NONE) {
+                unsigned long distance = fabs(targetAngle - currentAngle) / PENCIL_BETWEEN_ANGLE;
+                timeout(distance * PENCIL_CHANGE_TIME, false);
+                
+                SERVO_SetAngle(PENCIL_COLOR_SERVO, targetAngle);
+            }
+            state.color = color;
+        }
     }
 
     void setPrecision(float _precision) {
@@ -247,6 +267,7 @@ namespace RobusDraw {
 
     namespace {
         DrawingState state = {};
+        TimoutState timeoutState = {};
         DrawingInfo info = {};
         DrawingSettings settings = {};
         DrawingPoint loadedPoint = {};
@@ -266,7 +287,7 @@ namespace RobusDraw {
                 char line[100] = "\0";
                 getFileNextLine(line, 100);
 
-                char* tokens[8]; // Assuming a maximum of 4 tokens
+                char* tokens[8];
                 int tokenCount;
 
                 split(line, " ", tokens, &tokenCount);
@@ -281,8 +302,15 @@ namespace RobusDraw {
                     Serial.println("DEBUG DRAW : too many elements in drawing points");
                 }
                 state.pointIndex++;
+
+                setPencilColor(loadedPoint.color);
             }
             return loadedPoint;
+        }
+
+        void timeout(unsigned long time, bool isPencilDown) {
+            timeoutState.time = millis() + time;
+            timeoutState.pencilDown = isPencilDown;
         }
 
         void getFileNextLine(char* line, int size) {

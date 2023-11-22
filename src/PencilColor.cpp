@@ -33,3 +33,20 @@ PencilColor stringToPencilColor(const char* str) {
         return PencilColor::NONE;
     }
 }
+
+int pencilColorToAngle(PencilColor color) {
+    switch (color) {
+        case PencilColor::BLACK:
+            return 90;
+        case PencilColor::RED:
+            return 50;
+        case PencilColor::GREEN:
+            return 130;
+        case PencilColor::BLUE:
+            return 90;
+        case PencilColor::NONE:
+            return 0;
+        default:
+            return 0;
+    }
+}
