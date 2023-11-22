@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_0',['update',['../namespaceRobusDraw.html#a31eb86ebf1eef0e70a45e3a57488f9cd',1,'RobusDraw']]]
+  ['time_0',['time',['../structRobusDraw_1_1TimoutState.html#a168e3cadf158eca4453dc80570378421',1,'RobusDraw::TimoutState']]],
+  ['timoutstate_1',['TimoutState',['../structRobusDraw_1_1TimoutState.html',1,'RobusDraw']]]
 ];

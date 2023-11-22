@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_0',['width',['../structRobusDraw_1_1DrawingInfo.html#a833d02d9db1de0c8c8c4c3beedf3ed72',1,'RobusDraw::DrawingInfo']]]
+  ['update_0',['update',['../namespaceRobusDraw.html#a31eb86ebf1eef0e70a45e3a57488f9cd',1,'RobusDraw']]]
 ];
