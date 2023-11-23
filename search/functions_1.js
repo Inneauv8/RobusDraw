@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['initialize_0',['initialize',['../namespaceRobusDraw.html#a0dc72f54595621ba1850612b16e05e31',1,'RobusDraw']]],
+  ['initialize_0',['initialize',['../namespaceRobusDraw.html#a2861d2252b1cb9b5c7014007b8125d56',1,'RobusDraw']]],
   ['intimeout_1',['inTimeout',['../structRobusDraw_1_1TimoutState.html#a0f710699c9500144b92b81a5739d5778',1,'RobusDraw::TimoutState']]],
   ['isdrawingfinished_2',['isDrawingFinished',['../namespaceRobusDraw.html#acecac06e65aecbf53b4aac8dc4276943',1,'RobusDraw']]],
   ['isdrawingloaded_3',['isDrawingLoaded',['../namespaceRobusDraw.html#a9ec85019a845a038a7e26d71549e900e',1,'RobusDraw']]],
