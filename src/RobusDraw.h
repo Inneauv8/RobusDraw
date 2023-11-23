@@ -8,8 +8,8 @@
 #include <SD.h>
 
 #define PENCIL_DOWN_SERVO SERVO_2
-#define PENCIL_UP_ANGLE 135
-#define PENCIL_DOWN_ANGLE 130 //95
+#define PENCIL_UP_ANGLE 145
+#define PENCIL_DOWN_ANGLE 130 //130
 
 #define PENCIL_COLOR_SERVO SERVO_1
 #define PENCIL_BETWEEN_ANGLE 40
@@ -59,7 +59,7 @@ namespace RobusDraw {
         }
     };
 
-    void initialize(int chipSelect);
+    bool initialize(int chipSelect);
     void update();
 
     void getDrawingName(char* name);

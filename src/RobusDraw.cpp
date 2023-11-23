@@ -1,14 +1,12 @@
 #include "RobusDraw.h"
 
 namespace RobusDraw {
-    void initialize(int chipSelect) {
+    bool initialize(int chipSelect) {
+
         SERVO_Enable(PENCIL_DOWN_SERVO);
         SERVO_Enable(PENCIL_COLOR_SERVO);
-        if (!SD.begin(chipSelect)) {
-            Serial.println("Card failed, or not present");
-            // don't do anything more:
-            while (1);
-        }
+        setPencilDown(false);
+        return SD.begin(chipSelect);
     }
 
     void update() {
