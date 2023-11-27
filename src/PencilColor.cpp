@@ -41,7 +41,7 @@ int pencilColorToAngle(PencilColor color) {
         case PencilColor::RED:
             return 50;
         case PencilColor::GREEN:
-            return 130;
+            return 135;
         case PencilColor::BLUE:
             return 90;
         case PencilColor::NONE:

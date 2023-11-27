@@ -1,16 +1,13 @@
 #include "RobusDraw.h"
 
 namespace RobusDraw {
-    bool initialize(int chipSelect) {
-
+    void initialize() {
         SERVO_Enable(PENCIL_DOWN_SERVO);
         SERVO_Enable(PENCIL_COLOR_SERVO);
         setPencilDown(false);
-        return SD.begin(chipSelect);
     }
 
     void update() {
-        
         bool inTimout = timeoutState.inTimeout();
         if (isDrawingLoaded() && isDrawingRunning() && !isDrawingFinished() && !inTimout) {
             RobusPosition::startFollowingTarget();
@@ -79,7 +76,7 @@ namespace RobusDraw {
     }
 
     bool loadDrawing(char* path) {
-        if (!SD.exists(path)) {
+        if (!SDState::isCardPresent() || !SD.exists(path)) {
             Serial.println("ROBUS DRAW Can't find requested file");
             return false;
         }
@@ -249,7 +246,7 @@ namespace RobusDraw {
     }
 
     bool isDrawingLoaded() {
-        return state.loaded;
+        return state.loaded && SDState::isCardPresent();
     }
 
     float getProgress() {

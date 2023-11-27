@@ -6,6 +6,7 @@
 #include <PencilColor.h>
 #include <SPI.h>
 #include <SD.h>
+#include <SDState.h>
 
 #define PENCIL_DOWN_SERVO SERVO_2
 #define PENCIL_UP_ANGLE 145
@@ -59,7 +60,7 @@ namespace RobusDraw {
         }
     };
 
-    bool initialize(int chipSelect);
+    void initialize();
     void update();
 
     void getDrawingName(char* name);
