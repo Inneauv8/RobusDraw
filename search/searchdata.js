@@ -2,9 +2,11 @@ var indexSectionsWithContent =
 {
   0: "cdfghilnprstuwxy",
   1: "dt",
-  2: "r",
+  2: "rs",
   3: "gilprsu",
-  4: "cdfhilnptwxy"
+  4: "cdfhilnptwxy",
+  5: "s",
+  6: "npu"
 };
 
 var indexSectionNames =
@@ -13,7 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "functions",
-  4: "variables"
+  4: "variables",
+  5: "enums",
+  6: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -22,6 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Espaces de nommage",
   3: "Fonctions",
-  4: "Variables"
+  4: "Variables",
+  5: "Énumérations",
+  6: "Valeurs énumérées"
 };
 

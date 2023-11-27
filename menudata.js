@@ -27,8 +27,18 @@ var menudata={children:[
 {text:"Espaces de nommage",url:"namespaces.html",children:[
 {text:"Liste des espaces de nommage",url:"namespaces.html"},
 {text:"Membres de l'espace de nommage",url:"namespacemembers.html",children:[
-{text:"Tout",url:"namespacemembers.html"},
-{text:"Fonctions",url:"namespacemembers_func.html"}]}]},
+{text:"Tout",url:"namespacemembers.html",children:[
+{text:"g",url:"namespacemembers.html#index_g"},
+{text:"i",url:"namespacemembers.html#index_i"},
+{text:"l",url:"namespacemembers.html#index_l"},
+{text:"n",url:"namespacemembers.html#index_n"},
+{text:"p",url:"namespacemembers.html#index_p"},
+{text:"r",url:"namespacemembers.html#index_r"},
+{text:"s",url:"namespacemembers.html#index_s"},
+{text:"u",url:"namespacemembers.html#index_u"}]},
+{text:"Fonctions",url:"namespacemembers_func.html"},
+{text:"Énumérations",url:"namespacemembers_enum.html"},
+{text:"Valeurs énumérées",url:"namespacemembers_eval.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Liste des classes",url:"annotated.html"},
 {text:"Index des classes",url:"classes.html"},
