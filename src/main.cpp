@@ -203,7 +203,7 @@ void loop()
     case SDDRAWING:
         if (isButtonReleased(LEFT))
         {
-            if (loadWithFeedback("SPECIAL1.TXT"))
+            if (loadWithFeedback("S1.TXT"))
             {
                 state = DEFAULT;
             }
@@ -211,7 +211,7 @@ void loop()
 
         if (isButtonReleased(FRONT))
         {
-            if (loadWithFeedback("SPECIAL2.TXT"))
+            if (loadWithFeedback("S2.TXT"))
             {
                 state = DEFAULT;
             }
@@ -219,7 +219,7 @@ void loop()
 
         if (isButtonReleased(RIGHT))
         {
-            if (loadWithFeedback("SPECIAL3.TXT"))
+            if (loadWithFeedback("S3.TXT"))
             {
                 state = DEFAULT;
             }
