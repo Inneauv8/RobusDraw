@@ -15,6 +15,7 @@
       "MathX" : "https://github.com/Inneauv8/MathX",
       "RobusPosition" : "https://github.com/Inneauv8/RobusPosition",
       "BluetoothDraw" : "https://github.com/Inneauv8/BluetoothDraw",
-      "SD" : "arduino-libraries/SD@^1.2.4"
+      "SD" : "arduino-libraries/SD@^1.2.4",
+      "Music" : "https://github.com/Inneauv8/Music"
     }
   }
