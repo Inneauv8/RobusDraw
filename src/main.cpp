@@ -132,7 +132,8 @@ void loop()
     if (SDState::isCardPresent()) {
         BluetoothDraw::ReadingState bluetoothState = BluetoothDraw::update();
         if (bluetoothState == BluetoothDraw::ReadingState::DONE) {
-            //resultFeedback(bluetoothState == BluetoothDraw::ReadingState::DONE);
+            setSong(note4, 14, false);
+            start();
         } else if (bluetoothState == BluetoothDraw::ReadingState::FAILED) {
              AX_BuzzerON(FAILURE_TONE, FAILURE_TONE_DURATION);
         }
@@ -140,112 +141,124 @@ void loop()
 
     updateButtonState();
     delay(2);
-    
-        switch (state)
+
+    switch (state)
+    {
+    case LABYRINTHE:
+
+        if (isButtonReleased(LEFT))
         {
-        case LABYRINTHE:
-
-            if (isButtonReleased(LEFT))
+            if (loadLabyrinth("LabF"))
             {
-                if (loadLabyrinth("LabF")) {
-                    state = DEFAULT;
-                }
+                state = DEFAULT;
             }
-
-            if (isButtonReleased(FRONT))
-            {
-                if (loadLabyrinth("LabM")) {
-                    state = DEFAULT;
-                }
-            }
-
-            if (isButtonReleased(RIGHT))
-            {
-                if (loadLabyrinth("LabD")) {
-                    state = DEFAULT;
-                }
-            }
-            break;
-
-        case DEFAULTDRAWING:
-            if (isButtonReleased(LEFT))
-            {
-            if (loadWithFeedback("SD1.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-
-            if (isButtonReleased(FRONT))
-            {
-                RobusDraw::stopDrawing();
-                if (loadWithFeedback("SD2.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-
-            if (isButtonReleased(RIGHT))
-            {
-                if (loadWithFeedback("SD3.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-            break;
-        case SDDRAWING:
-            if (isButtonReleased(LEFT))
-            {
-                if (loadWithFeedback("SPECIAL1.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-
-            if (isButtonReleased(FRONT))
-            {
-                if (loadWithFeedback("SPECIAL2.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-
-            if (isButtonReleased(RIGHT))
-            {
-                if (loadWithFeedback("SPECIAL3.TXT")) {
-                    state = DEFAULT;
-                }
-            }
-            break;
-        default:
-            if (isButtonReleased(LEFT))
-            {
-                Serial.println("Labyrinthe");
-                state = LABYRINTHE;
-                changeMenuFeedback();
-            }
-
-            if (isButtonReleased(FRONT))
-            {
-                Serial.println("Default Drawing");
-                state = DEFAULTDRAWING;
-                changeMenuFeedback();
-            }
-
-            if (isButtonReleased(RIGHT))
-            {
-                Serial.println("SD Drawing");
-                state = SDDRAWING;
-                changeMenuFeedback();
-            }
-
-            if (isButtonReleased(REAR))
-            {
-                Serial.println("Reset");
-                changeMenuFeedback();
-            }
-            break;
         }
 
-    if (RobusDraw::isDrawingLoaded() && !RobusDraw::isDrawingRunning()) {
+        if (isButtonReleased(FRONT))
+        {
+            if (loadLabyrinth("LabM"))
+            {
+                state = DEFAULT;
+            }
+        }
+
+        if (isButtonReleased(RIGHT))
+        {
+            if (loadLabyrinth("LabD"))
+            {
+                state = DEFAULT;
+            }
+        }
+        break;
+
+    case DEFAULTDRAWING:
+        if (isButtonReleased(LEFT))
+        {
+            if (loadWithFeedback("SD1.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+
+        if (isButtonReleased(FRONT))
+        {
+            RobusDraw::stopDrawing();
+            if (loadWithFeedback("SD2.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+
+        if (isButtonReleased(RIGHT))
+        {
+            if (loadWithFeedback("SD3.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+        break;
+    case SDDRAWING:
+        if (isButtonReleased(LEFT))
+        {
+            if (loadWithFeedback("SPECIAL1.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+
+        if (isButtonReleased(FRONT))
+        {
+            if (loadWithFeedback("SPECIAL2.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+
+        if (isButtonReleased(RIGHT))
+        {
+            if (loadWithFeedback("SPECIAL3.TXT"))
+            {
+                state = DEFAULT;
+            }
+        }
+        break;
+    default:
+        if (isButtonReleased(LEFT))
+        {
+            Serial.println("Labyrinthe");
+            state = LABYRINTHE;
+            changeMenuFeedback();
+        }
+
+        if (isButtonReleased(FRONT))
+        {
+            Serial.println("Default Drawing");
+            state = DEFAULTDRAWING;
+            changeMenuFeedback();
+        }
+
+        if (isButtonReleased(RIGHT))
+        {
+            Serial.println("SD Drawing");
+            state = SDDRAWING;
+            changeMenuFeedback();
+        }
+
+        if (isButtonReleased(REAR))
+        {
+            Serial.println("Reset");
+            changeMenuFeedback();
+        }
+        break;
+    }
+
+    if (RobusDraw::isDrawingLoaded() && !RobusDraw::isDrawingRunning())
+    {
         RobusDraw::startDrawing();
     }
+
     RobusDraw::update();
+    play();
 }
 
 void updateButtonState()
