@@ -70,18 +70,6 @@ void onSDStateChange(SDState::SDState state) {
 
     if (state == SDState::PRESENT) {
         Serial.println("Successfully initialized SD card!");
-
-        if (!digitalRead(PACMAN_CODE_PIN)) {
-            File file = SD.open("pac.txt");
-
-            int fileSize = file.size();
-            file.readBytes(pacmanFile, fileSize + 1);
-            pacmanFile[fileSize] = '\0';
-
-            Serial.println(pacmanFile);
-
-            file.close();
-        }
     } else {
         Serial.println("Failed to initialize SD card!");
     }
@@ -143,15 +131,16 @@ void loop()
     
     if (SDState::isCardPresent()) {
         BluetoothDraw::ReadingState bluetoothState = BluetoothDraw::update();
-        if (bluetoothState == BluetoothDraw::ReadingState::DONE || bluetoothState == BluetoothDraw::ReadingState::FAILED) {
-            resultFeedback(bluetoothState == BluetoothDraw::ReadingState::DONE);
+        if (bluetoothState == BluetoothDraw::ReadingState::DONE) {
+            //resultFeedback(bluetoothState == BluetoothDraw::ReadingState::DONE);
+        } else if (bluetoothState == BluetoothDraw::ReadingState::FAILED) {
+             AX_BuzzerON(FAILURE_TONE, FAILURE_TONE_DURATION);
         }
     }
 
     updateButtonState();
     delay(2);
-
-    if (digitalRead(PACMAN_CODE_PIN)) {
+    
         switch (state)
         {
         case LABYRINTHE:
@@ -252,13 +241,6 @@ void loop()
             }
             break;
         }
-    } else if (!RobusDraw::isDrawingLoaded() && SDState::isCardPresent()) {
-        loadWithFeedback(pacmanFile);
-    }
-
-    if (!digitalRead(PACMAN_CODE_PIN) && RobusDraw::isDrawingRunning()) {
-        play(note4);
-    }
 
     if (RobusDraw::isDrawingLoaded() && !RobusDraw::isDrawingRunning()) {
         RobusDraw::startDrawing();
