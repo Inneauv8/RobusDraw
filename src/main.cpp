@@ -39,6 +39,9 @@ int state = DEFAULT;
 char pacmanFile[50];
 
 Note note4[] = {Note(493,125),{987,125},{740,125},{622,125},{987,63},{698,176},{622,250},{523,125},{1046,146},{784,125},{659,125},{1046,63},{784,167},{659,250}};
+Note note2[] = {Note(523, 125), Note(659, 125), Note(784, 125), Note(1046, 250), Note(784, 125), Note(1046, 500)};
+
+bool drawingDone = false;
 
 void setup()
 {
@@ -257,6 +260,13 @@ void loop()
         RobusDraw::startDrawing();
     }
 
+    if (!drawingDone && RobusDraw::isDrawingFinished()) {
+        setSong(note2, 6, false);
+        start();
+    }
+
+    drawingDone = RobusDraw::isDrawingFinished();
+    
     RobusDraw::update();
     play();
 }
