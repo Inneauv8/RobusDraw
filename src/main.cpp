@@ -38,7 +38,7 @@ int state = DEFAULT;
 
 char pacmanFile[50];
 
-Note note4[] = {Note(493,125),{987,125},{740,125},{622,125},{987,63},{698,176},{622,250},{523,125},{1046,146},{784,125},{659,125},{1046,63},{784,167},{659,250}};
+Note note4[] = {Note(493,125),{987,125},{740,125},{622,125},{987,63},{698,176},{622,250},{523,125},{1046,146},{784,125},{659,125},{1046,63},{784,167},{659,250},{493,125},{987,125},{740,125},{622,125},{987,63},{698,63},{622,63},{659,63},{698,125},{698,63},{740,63},{784,125},{830,63},{880,125},{932,250}};
 Note note2[] = {Note(523, 125), Note(659, 125), Note(784, 125), Note(1046, 250), Note(784, 125), Note(1046, 500)};
 
 bool drawingDone = false;
@@ -135,7 +135,7 @@ void loop()
     if (SDState::isCardPresent()) {
         BluetoothDraw::ReadingState bluetoothState = BluetoothDraw::update();
         if (bluetoothState == BluetoothDraw::ReadingState::DONE) {
-            setSong(note4, 14, false);
+            setSong(note4, 29, false);
             start();
         } else if (bluetoothState == BluetoothDraw::ReadingState::FAILED) {
              AX_BuzzerON(FAILURE_TONE, FAILURE_TONE_DURATION);
